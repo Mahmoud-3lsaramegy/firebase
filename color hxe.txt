@@ -1,0 +1,17 @@
+
+
+Ui Desgin Nota 
+
+/*4DElsaramegy*/;
+
+
+Yallow : #EFBF00 ;
+
+Gray Button : #72716D ;
+
+Gray Border : #707070 ;
+
+
+Button Border-ruides : 27 ;
+
+Input Box-rudise:16; 

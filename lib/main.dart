@@ -1,3 +1,4 @@
+import 'package:firebace/auth/signin.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,6 +15,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const sign(),
+      theme: ThemeData(
+        fontFamily: "Cairo",
+      ),
+    );
   }
 }
