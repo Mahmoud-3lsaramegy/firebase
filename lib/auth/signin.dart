@@ -1,7 +1,8 @@
+import 'package:firebace/mymatirel/buttons.dart';
 import 'package:flutter/material.dart';
 
-class sign extends StatelessWidget {
-  const sign({super.key});
+class Sign extends StatelessWidget {
+  const Sign({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,6 +10,7 @@ class sign extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,94 +45,197 @@ class sign extends StatelessWidget {
                    * input filed
                    * users value
                    */
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.all(20),
-                  child: const Text(
-                    "Email",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Cairo',
-                    ),
-                  ),
-                ),
+
 //Email input
                 Container(
-                  margin: const EdgeInsets.all(10.0),
+                  margin: const EdgeInsets.all(18.5),
                   child: TextFormField(
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(18.0),
-                      filled: true,
-                      focusColor: const Color(0xffEFBF00),
-                      hoverColor: const Color(0xffEFBF00),
-                      fillColor: Color.fromARGB(255, 136, 177, 230),
-                      hintText: "Enter Your Email ",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 255, 255, 255)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: const BorderSide(
-                          color: Color(0xffEFBF00),
-                          width: 3,
-                        ),
-                      ),
-                    ),
-                  ),
+                      maxLines: 1,
+                      //cursorHeight: 100,
+                      decoration: InputDecoration(
+                          focusColor: Color(0xffEFBF00),
+                          contentPadding: const EdgeInsets.all(8.0),
+                          prefixIcon: const Icon(
+                            Icons.email_outlined,
+                            color: Color(0xffEFBF00),
+                            size: 25,
+                          ),
+                          hintText: "Email@***.com",
+                          hintStyle: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Cairo',
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: const BorderSide(
+                              color: Color(0xff707070),
+                              width: 3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: const BorderSide(
+                              color: Color(0xffEFBF00),
+                              width: 3,
+                            ),
+                          ))),
                 ),
-                // password
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.all(20),
-                  child: const Text(
-                    "Password",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Cairo',
-                    ),
-                  ),
-                ),
+
+// password
+
 //password input
                 Container(
-                  margin: const EdgeInsets.all(10.00),
+                  margin: const EdgeInsets.all(18.5),
                   child: TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(18.0),
-                      focusColor: const Color(0xffEFBF00),
-                      hoverColor: const Color(0xffEFBF00),
-                      filled: true,
-                      fillColor: Color.fromARGB(255, 136, 177, 230),
-                      hintText: "Enter Your Password ",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 255, 255, 255)),
+                      maxLines: 1,
+                      //cursorHeight: 100,
+                      obscureText: true,
+                      obscuringCharacter: "*",
+                      decoration: InputDecoration(
+                          focusColor: Color(0xffEFBF00),
+                          contentPadding: const EdgeInsets.all(8.0),
+                          prefixIcon: const Icon(
+                            Icons.password_outlined,
+                            color: Color(0xffEFBF00),
+                            size: 25,
+                          ),
+                          hintText: "Password***",
+                          hintStyle: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Cairo',
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: const BorderSide(
+                              color: Color(0xff707070),
+                              width: 3,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: const BorderSide(
+                              color: Color(0xffEFBF00),
+                              width: 3,
+                            ),
+                          ))),
+                ),
+
+                ///Buttons To auth function
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(18.5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Buttonsaramegy_text(
+                              const Color(0xffEFBF00),
+                              175,
+                              50,
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                  ),
+                                  Icon(Icons.login_outlined)
+                                ],
+                              ),
+                              () {},
+                              25),
+                          Buttonsaramegy_text(
+                              const Color(0xff72716D),
+                              175,
+                              50,
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Creat Email",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                  ),
+                                  Icon(Icons.add_circle_outline)
+                                ],
+                              ),
+                              () {},
+                              25),
+                        ],
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: const BorderSide(
-                          color: Color(0xffEFBF00),
-                          width: 3,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
+                    /////social auth button
+                    const SizedBox(
+                      width: double.infinity,
+                      height: 75,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(18.5),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Buttonsaramegy_text(
+                                const Color(0xff72716D),
+                                75,
+                                75,
+                                const Icon(Icons.account_circle_outlined,
+                                    size: 40, color: Colors.white),
+                                () {},
+                                50),
+                            Buttonsaramegy_text(
+                                const Color(0xff72716D),
+                                75,
+                                75,
+                                const Icon(Icons.apple_outlined,
+                                    size: 40, color: Colors.white),
+                                () {},
+                                50),
+                            Buttonsaramegy_text(
+                                const Color(0xff72716D),
+                                75,
+                                75,
+                                const Icon(
+                                  Icons.facebook_outlined,
+                                  size: 40,
+                                  color: Colors.white,
+                                ),
+                                () {},
+                                50)
+                          ]),
+                    )
+                  ],
+                ),
+
+                /* Container(
+                  margin: const EdgeInsets.all(25.0),
+                  child: const Center(
+                    child: Text(
+                      "Socail Auth",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Cairo',
                       ),
                     ),
                   ),
-                ),
+                ),*/
               ]),
         ),
       ),
