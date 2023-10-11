@@ -1,22 +1,29 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
-class input extends StatelessWidget {
-  input(this.hint, this.prefix, this.scure, this.charscure, {super.key});
+class Input extends StatelessWidget {
+  Input(this.scure, this.charscure,
+      {super.key,
+      required this.controller,
+      required this.hint,
+      required this.prefix});
   bool scure = false;
   String charscure = "*";
-  String hint;
-  Icon prefix;
-
+  final String hint;
+  final Icon prefix;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        maxLines: 1,
+        //maxLines: 1,
+        controller: controller,
         //cursorHeight: 100,
         obscureText: scure,
         obscuringCharacter: charscure,
         decoration: InputDecoration(
-            focusColor: Color(0xffEFBF00),
-            contentPadding: const EdgeInsets.all(8.0),
+            //focusColor: const Color(0xffEFBF00),
+            contentPadding: const EdgeInsets.all(27.5),
             prefixIcon: prefix,
             hintText: hint,
             hintStyle: const TextStyle(
@@ -25,17 +32,17 @@ class input extends StatelessWidget {
               fontFamily: 'Cairo',
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(12.5),
               borderSide: const BorderSide(
                 color: Color(0xff707070),
-                width: 3,
+                width: 1,
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(12.5),
               borderSide: const BorderSide(
-                color: Color(0xffEFBF00),
-                width: 3,
+                color: Color(0xff707070),
+                width: 1,
               ),
             )));
   }
