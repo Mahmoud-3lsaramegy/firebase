@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, prefer_const_constructors
 
+import 'package:firebace/auth/chack_email.dart';
 import 'package:firebace/auth/signin.dart';
 import 'package:firebace/auth/signup.dart';
 import 'package:firebace/nota_Pages/Notaa.dart';
@@ -16,13 +17,16 @@ void main() async {
   ///// lunch point app
   runApp(const MyApp());
 }
+
 bool ustate = false;
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
+
 @override
 class _MyAppState extends State<MyApp> {
   @override
@@ -46,14 +50,18 @@ class _MyAppState extends State<MyApp> {
         "signup": (context) => const createmail(),
         "Create_note": (context) => const note(),
         "Gellrey": (context) => const Gellrey(),
+        "email_chacker": (context) => EmailChacker(),
       },
       debugShowCheckedModeBanner: false,
       home: LayoutBuilder(
         builder: (context, constraints) {
           if (ustate == false) {
             return Sign();
-          } else {
+          } else if (FirebaseAuth.instance.currentUser!.emailVerified == true &&
+              ustate == true) {
             return Gellrey();
+          } else {
+            return EmailChacker();
           }
         },
       ),

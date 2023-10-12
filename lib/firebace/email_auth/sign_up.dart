@@ -12,7 +12,12 @@ class Createmail {
         email: emailAddress,
         password: password,
       );
-      Navigator.of(context).pushReplacementNamed("Gellrey");
+      if (FirebaseAuth.instance.currentUser!.emailVerified == true) {
+        Navigator.of(context).pushReplacementNamed("Gellrey");
+      } else {
+        FirebaseAuth.instance.currentUser!.sendEmailVerification();
+        Navigator.of(context).pushReplacementNamed("email_chacker");
+      }
       return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
