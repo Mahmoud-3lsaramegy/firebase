@@ -82,6 +82,13 @@ class createmail extends StatelessWidget {
                   Createmail(
                           emailAddress: upEmail.text, password: upPassword.text)
                       .email_auth(context);
+                  const snakChacker = SnackBar(
+                    content: Text("Go to Email Inbox"),
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.grey,
+                    margin: EdgeInsets.all(5),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snakChacker);
                 }, 15),
               ),
               Container(

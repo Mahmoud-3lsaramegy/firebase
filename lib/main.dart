@@ -13,7 +13,6 @@ void main() async {
   //firebace initalize
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   ///// lunch point app
   runApp(const MyApp());
 }
@@ -50,7 +49,6 @@ class _MyAppState extends State<MyApp> {
         "signup": (context) => const createmail(),
         "Create_note": (context) => const note(),
         "Gellrey": (context) => const Gellrey(),
-        "email_chacker": (context) => EmailChacker(),
       },
       debugShowCheckedModeBanner: false,
       home: LayoutBuilder(
@@ -61,7 +59,7 @@ class _MyAppState extends State<MyApp> {
               ustate == true) {
             return Gellrey();
           } else {
-            return EmailChacker();
+            return Sign();
           }
         },
       ),

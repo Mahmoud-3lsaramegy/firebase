@@ -2,9 +2,17 @@ import 'package:firebace/mymatirel/buttons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class EmailChacker extends StatelessWidget {
+// ignore: prefer_typing_uninitialized_variables
+bool verified = false;
+
+class EmailChacker extends StatefulWidget {
   const EmailChacker({super.key});
 
+  @override
+  State<EmailChacker> createState() => _EmailChackerState();
+}
+
+class _EmailChackerState extends State<EmailChacker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,16 +25,15 @@ class EmailChacker extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: double.infinity,
-                  margin: const EdgeInsets.all(12.5),
-                  child: const Text(
-                    "Please check your inbox for any missing emails. If you do not find any emails, please check your email settings to make sure that your inbox is not full or blocked.",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(12.5),
+                    child: const Text(
+                      "Please check your inbox for any missing emails. If you do not find any emails, please check your email settings to make sure that your inbox is not full or blocked.",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 20,
+                      ),
+                    )),
                 Container(
                   width: double.infinity,
                   margin: const EdgeInsets.all(12.5),
@@ -35,6 +42,14 @@ class EmailChacker extends StatelessWidget {
                     if (FirebaseAuth.instance.currentUser!.emailVerified ==
                         true) {
                       Navigator.of(context).pushReplacementNamed("Gellrey");
+                    } else {
+                      const snakChacker = SnackBar(
+                        content: Text("Go to Email Inbox"),
+                        behavior: SnackBarBehavior.floating,
+                        backgroundColor: Colors.grey,
+                        margin: EdgeInsets.all(5),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snakChacker);
                     }
                   }, 15),
                 ),

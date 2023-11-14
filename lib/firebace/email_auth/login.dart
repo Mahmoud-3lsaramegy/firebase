@@ -16,7 +16,13 @@ class Login_email {
         Navigator.of(context).pushReplacementNamed("Gellrey");
       } else {
         FirebaseAuth.instance.currentUser!.sendEmailVerification();
-        Navigator.of(context).pushReplacementNamed("email_chacker");
+        const snakChacker = SnackBar(
+          content: Text("Go to Email and click actvite link and R-login .!"),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.grey,
+          margin: EdgeInsets.all(5),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snakChacker);
       }
       return credential;
     } on FirebaseAuthException catch (e) {

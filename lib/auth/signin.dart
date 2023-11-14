@@ -1,7 +1,12 @@
+import 'dart:math';
+
+import 'package:firebace/firebace/email_auth/forgetpassword.dart';
+import 'package:firebace/firebace/email_auth/google_Auth.dart';
 import 'package:firebace/firebace/email_auth/login.dart';
 import 'package:firebace/mymatirel/buttons.dart';
 import 'package:firebace/mymatirel/logo.dart';
 import 'package:firebace/mymatirel/textfiled.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Sign extends StatelessWidget {
@@ -126,8 +131,11 @@ class Sign extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           margin: const EdgeInsets.symmetric(
                               horizontal: 18.5, vertical: 5.5),
-                          child: const InkWell(
-                            child: Text("forget password ?",
+                          child: InkWell(
+                            onTap: () {
+                              edit_password(context, email.text);
+                            },
+                            child: const Text("forget password ?",
                                 style: TextStyle(
                                   color: Color(0xffEFBF00),
                                 )),
@@ -147,8 +155,8 @@ class Sign extends StatelessWidget {
                                   75,
                                   75,
                                   ImageIcon(AssetImage("images/google.png")),
-                                () {
-                                Navigator.pushNamed(context, "Gellrey");
+                                  () {
+                                signInWithGoogle(context);
                               }, 50),
                               Buttonsaramegy_text(
                                   const Color(0xff72716D),
